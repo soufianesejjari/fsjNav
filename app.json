@@ -4,10 +4,10 @@
     "slug": "fsjNav",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/iconApp.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/iconApp.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,13 +18,38 @@
       "supportsTablet": true
     },
     "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAcq7ba-UVWTTVI3z3jkP7EU8ZaGb-e5rU"
+        }
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "INTERNET",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ],
+      "package": "com.soufianesejjari.fsjNav"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins":[ [
+      "expo-font",
+      "expo-router"
+     ], [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "donné l'accés a  $(PRODUCT_NAME) pour utilisé location."
+        }
+      ]],
+    "extra": {
+      "eas": {
+        "projectId": "a107002f-f88c-4011-be0e-e7414f58344c"
+      }
     }
   }
 }

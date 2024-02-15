@@ -1,6 +1,6 @@
 import { getAuth } from 'firebase/auth';
 import { getDatabase } from 'firebase/database';
-import { collection, getDocs, getFirestore ,doc, updateDoc, query, where, arrayUnion, arrayRemove} from 'firebase/firestore';
+import { collection, getDocs, getFirestore ,doc, updateDoc, query, where, arrayUnion, arrayRemove, orderBy} from 'firebase/firestore';
 
 import React, { useEffect, useState } from 'react';
 import {
@@ -23,10 +23,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function EventList({navigation}) {
   const {isDarkMode}=useTheme()
-
-
-
-
 
   
 // Function to save an event to local storage
@@ -128,30 +124,33 @@ const removeEventFromLocal = async (eventId) => {
     const [events, setEvents] = useState([]);
 
 const firestore=getFirestore()
-
 useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(firestore, 'Events'));
-        const eventsData = [];
+  const fetchData = async () => {
+    try {
+      // Update the query to order events by the automatically generated 'createdAt' field
+      const querySnapshot = await getDocs(
+        query(collection(firestore, 'Events'), orderBy('eventDate', 'desc'))
+      );
 
-        querySnapshot.forEach((doc) => {
-          // Ajoutez les données de chaque document à un tableau
-          console.log(`${doc.id} =>`, doc.data());
+      const eventsData = [];
 
-          eventsData.push({ id: doc.id, ...doc.data() });
-        });
+      querySnapshot.forEach((doc) => {
+        // Ajoutez les données de chaque document à un tableau
+        console.log(`${doc.id} =>`, doc.data());
 
-        // Mettez à jour l'état avec les données récupérées
-        setEvents(eventsData);
-      } catch (error) {
-        console.error('Erreur lors de la récupération des données:', error);
-      }
-    };
+        eventsData.push({ id: doc.id, ...doc.data() });
+      });
 
-    // Appelez la fonction pour récupérer les données lors du montage du composant
-    fetchData();
-  }, []); // Assurez-vous de ne pas oublier la dépendance vide pour exécuter useEffect une seule fois
+      // Mettez à jour l'état avec les données récupérées
+      setEvents(eventsData);
+    } catch (error) {
+      console.error('Erreur lors de la récupération des données:', error);
+    }
+  };
+
+  // Call the fetchData function
+  fetchData();
+}, []);
 
 
 
@@ -174,8 +173,15 @@ useEffect(() => {
 
  
   };
+  const formatEventDate = (timestamp) => {
+    const dateObject = timestamp.toDate(); // Convert Timestamp to Date
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    const formattedDate = dateObject.toLocaleDateString('fr-FR', options);
+    return formattedDate;
+  };
+
   return (
-    <View style={{ flex:1 ,backgroundColor:  isDarkMode ? '#1F2937' : '#fff' }}>
+    <View style={{ flex:1 ,backgroundColor:  isDarkMode ? '#1F2937' : '#e8ecf4' }}>
       <ScrollView contentContainerStyle={styles.container}>
         <Text style={styles.title}>Events </Text>
 
@@ -188,14 +194,14 @@ useEffect(() => {
                 navigation.navigate('EventMain', { eventData: events[index] });
                 
               }}>
-              <View style={styles.card}>
+              <View style={[styles.card,{ backgroundColor: isDarkMode ? '#1F2937' : '#F9F9F9' }] }>
                 <View style={styles.cardLikeWrapper}>
                   <TouchableOpacity key={index}
 
                 onPress={() => toggleSavedEvent(index)}>
-                    <View style={styles.cardLike}>
+                    <View style={[styles.cardLike,{ backgroundColor: isDarkMode ? 'rgba(253, 191, 96,0.2)' : '#fff' }]}>
                       <FontAwesome
-                        color={saved ? '#ea266d' : '#222'}
+                        color={saved ? '#FF8911' : '#222'}
                         name="heart"
                         solid={saved}
                         size={22} />
@@ -213,26 +219,24 @@ useEffect(() => {
 
                 <View style={styles.cardBody}>
                   <View style={styles.cardHeader}>
-                    <Text style={styles.cardTitle}>{eventName}</Text>
+                    <Text style={[styles.cardTitle,{ color: isDarkMode ? '#7F27FF' : '#232425' }]}>{eventName}</Text>
 
-                    <Text style={styles.cardPrice}>
-                  {/*  <Text style={{ fontWeight: '600' }}>{departement}</Text> */}
-                      
-                    </Text>
+           
                   </View>
 
                   <View style={styles.cardFooter}>
                     <FontAwesome
-                      color="#ea266d"
+                      color="#FF8911"
                       name="star"
                       solid={true}
                       size={12}
                       style={{ marginBottom: 2 }} />
 
-<Text style={styles.cardStars}>{eventDate}</Text>
+<Text style={[styles.cardStars,{ color: isDarkMode ? '#7F27FF' : '#232425' }]}
+>{formatEventDate(eventDate)}</Text>
 
                     <Text style={styles.cardReviews}>({eventDuration})</Text>
-                    <Text style={{ fontWeight: '600' ,marginLeft:80, color:'#FF8911'}}>{departement}</Text>
+                    <Text style={{ fontWeight: '600' ,marginLeft:60, color:'#FF8911'}}>{departement}</Text>
 
                   </View>
                 </View>

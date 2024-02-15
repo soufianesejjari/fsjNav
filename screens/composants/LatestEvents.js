@@ -1,39 +1,56 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { useTheme } from '../../ThemeContext';
-import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { collection, getDocs, getFirestore ,orderBy,query,limit,where} from 'firebase/firestore';
+// import { startOfDay, Timestamp } from 'date-fns';
 
 const LatestEvents = ({ navigation }) => {
   const { isDarkMode } = useTheme(); // Utilisez le hook useTheme pour accéder à l'état du mode sombre
   const [latestEvents, setLatestEvents] = useState([]);
   const firestore=getFirestore()
+// ...
 
-  useEffect(() => {
-      const fetchLatestEvents = async () => {
-        try {
-          const querySnapshot = await getDocs(collection(firestore, 'Events'));
-          const eventsData = [];
-  
-          querySnapshot.forEach((doc) => {
-            // Ajoutez les données de chaque document à un tableau
-            console.log(`${doc.id} =>`, doc.data());
-  
-            eventsData.push({ id: doc.id, ...doc.data() });
-          });
-  
-          // Mettez à jour l'état avec les données récupérées
-          setLatestEvents(eventsData);
-        } catch (error) {
-          console.error('Erreur lors de la récupération des données:', error);
-        }
-      };
-  
-      // Appelez la fonction pour récupérer les données lors du montage du composant
-      fetchLatestEvents();
-    }, []); // Assurez-vous de ne pas oublier la dépendance vide pour exécuter useEffect une seule fois
-  
-  // Utilisez useEffect pour charger les derniers événements depuis Firestore
+useEffect(() => {
+  const fetchLatestEvents = async () => {
+    try {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // Set time to the beginning of the day
 
+      const querySnapshot = await getDocs(
+        query(
+          collection(firestore, 'Events'),
+          where('eventDate', '>=', today),
+          orderBy('eventDate', 'asc'),
+          limit(5)
+        )
+      );
+
+      const eventsData = [];
+
+      querySnapshot.forEach((doc) => {
+        // Ajoutez les données de chaque document à un tableau
+        console.log(`${doc.id} =>`, doc.data());
+
+        eventsData.push({ id: doc.id, ...doc.data() });
+      });
+
+      // Mettez à jour l'état avec les données récupérées
+      setLatestEvents(eventsData);
+    } catch (error) {
+      console.error('Erreur lors de la récupération des données:', error);
+    }
+  };
+
+  // Appelez la fonction pour récupérer les données lors du montage du composant
+  fetchLatestEvents();
+}, []); // Assurez-vous de ne pas oublier la dépendance vide pour exécuter useEffect une seule fois
+
+  const formatEventDate = (timestamp) => {
+    const dateObject = timestamp.toDate(); // Convert Timestamp to Date
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    const formattedDate = dateObject.toLocaleDateString('fr-FR', options);
+    return formattedDate;
+  };
 
   const handleEventPress = (event) => {
     // Naviguez vers la page d'événement individuel avec les données de l'événement
@@ -49,7 +66,7 @@ const LatestEvents = ({ navigation }) => {
       <Image style={styles.eventImage} source={{ uri: item.eventImage }} />
       <View style={styles.overlay}>
         <Text style={styles.eventTitle}>{item.eventName}</Text>
-        <Text style={styles.eventDate}>{item.eventDate}</Text>
+        <Text style={styles.eventDate}>{formatEventDate(item.eventDate)}</Text> 
       </View>
       </View>
 
@@ -73,14 +90,14 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 8,
+    marginBottom: 5,
     color:'#7F27FF',
 
   },
   sectionTitleD: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 8,
+    marginBottom: 5,
     color:'#FF8911',
 
   },
@@ -95,16 +112,17 @@ const styles = StyleSheet.create({
     justifyContent:'center',
   },
   darkEventContainer: {
-    margin: 8,
+    margin: 5,
     borderRadius: 12,
     overflow: 'hidden',
     borderColor: '#6366f1',
     borderWidth: 1,
   },
   eventImage: {
-    width: 290,
-    height: 150,
-    borderRadius: 12,
+//marginRight:10,
+    width: 250,
+    height: 170,
+    borderRadius: 15,
     justifyContent: 'flex-end',
 
   },

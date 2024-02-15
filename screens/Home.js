@@ -17,12 +17,7 @@ const Home = ({ navigation }) => {
 
   ];
 
-  const topEvents = [
-    { id: 1, title: "Événement des étudiants en Master 2IAD", dateE: '17/02/2024', image: require('../assets/evn.png') },
-    { id: 2, title: "Événement des étudiants en Master 2IAD", dateE: '17/02/2024', image: require('../assets/evn.png') },
-    { id: 3, title: "Événement des étudiants en Master 2IAD", dateE: '17/02/2024', image: require('../assets/evn.png') },
-    { id: 4, title: "Concours des étudiants en Master 2IAD", dateE: '17/02/2024', image: require('../assets/evn.png') },
-  ];
+
 
   const renderDep = ({ item }) => (
     <TouchableOpacity>
@@ -93,7 +88,7 @@ const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   lightContainer: {
-    marginTop:30,
+  //  marginTop:15,
     flex: 1,
     backgroundColor: '#e8ecf4',
   },
@@ -104,21 +99,25 @@ const styles = StyleSheet.create({
     backgroundColor: '#1f1f1f',
   },
   lightFacultyCardContainer: {
-    backgroundColor: '#FF8911',
+    backgroundColor: '#7F27FF',
     borderRadius: 15,
     padding: 20,
-    margin: 10,
+    margin: 12,
+    marginTop:30,
+    marginBottom:2,
   },
   darkFacultyCardContainer: {
     backgroundColor: '#4B5563',
     borderRadius: 15,
     padding: 20,
-    margin: 10,
+    margin: 12,
+    marginTop:30,
+    marginBottom:2,
   },
   facultyCardTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#7F27FF',
+    color: '#FF8911',
   },
   facultyCardDescription: {
     marginTop: 10,
@@ -135,7 +134,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e8ecf4', // Couleur de fond pour le mode clair
     padding: 16,
     borderRadius: 12,
-    marginTop: 16,
+    marginTop: 10,
   },
   departmentsHeader: {
     fontSize: 20,
@@ -180,7 +179,8 @@ const styles = StyleSheet.create({
   },
   lightTopEventsContainer: {
     backgroundColor: '#e8ecf4',
-    padding: 10,
+    //padding: 10,
+    paddingHorizontal:12,
     marginBottom: 15,
     height: 200,
   },

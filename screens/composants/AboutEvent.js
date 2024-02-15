@@ -11,7 +11,7 @@ import {
 const  AboutEvent=({eventData})=>{
     return (  
          <View style={styles.about}>
-      <Text style={styles.aboutTitle}>About</Text>
+      <Text style={styles.aboutTitle}>Plus d'informations</Text>
       <Text style={styles.aboutDescription}>
       {eventData}
 
@@ -265,14 +265,15 @@ const  AboutEvent=({eventData})=>{
           fontWeight: '700',
           fontSize: 22,
           lineHeight: 32,
-          color: '#242329',
+          color: '#7F27FF',
           marginBottom: 4,
         },
         aboutDescription: {
           fontWeight: '500',
-          fontSize: 12,
+          fontSize: 15,
           lineHeight: 20,
           color: '#7b7c7e',
+          marginBottom:5,
         },
         /** Button */
         btn: {

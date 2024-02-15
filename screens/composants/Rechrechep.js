@@ -7,9 +7,13 @@ import {
   Text,
 } from 'react-native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
+import Places from './PlacesV2';
+import { btiment } from './Batiments';
 
-export default function RechercheP({ setSearchText, setSelectedBlocks }) {
+export default function RechercheP() {
   const scrollY = useRef(new Animated.Value(0)).current;
+  const [searchText, setSearchText] = useState('');
+  const [selectedBlocks, setSelectedBlocks] = useState([]);
 
   const translateHeader = scrollY.interpolate({
     inputRange: [0, 80],
@@ -74,8 +78,7 @@ export default function RechercheP({ setSearchText, setSelectedBlocks }) {
           },
         )}
         scrollEventThrottle={1}>
-        {/* Your scrollable content goes here */}
-      </Animated.ScrollView>
+        </Animated.ScrollView>
     </View>
   );
 }

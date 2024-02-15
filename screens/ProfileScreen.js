@@ -110,13 +110,13 @@ export default function ProfileScreen({ navigation }) {
   }, [value]);
 
   return (
-    <SafeAreaView style={{ backgroundColor: isDarkMode ? '#1F2937' : '#f8f8f8', flex: 1 }}>
+    <SafeAreaView style={{ backgroundColor: isDarkMode ? '#1F2937' : '#e8ecf4', flex: 1 }}>
       {loading ? (
         <Laoding />
       ) : (
         <ScrollView
           contentContainerStyle={styles.container}
-          style={{ backgroundColor: isDarkMode ? '#1F2937' : '#f8f8f8' }}>
+          style={{ backgroundColor: isDarkMode ? '#1F2937' : '#e8ecf4' }}>
           <View style={styles.header}>
             <Text style={styles.title}>Paramètres</Text>
           </View>
@@ -130,7 +130,7 @@ export default function ProfileScreen({ navigation }) {
                 style={styles.profileAvatar}
               />
               <View>
-                <Text style={styles.profileName}>{userData && userData.full_name ? userData.full_name : 'Nom non disponible'}</Text>
+                <Text style={[styles.profileName,{ color: isDarkMode ? '#FF8911' : '#3d3d3d' }]}>{userData && userData.full_name ? userData.full_name : 'Nom non disponible'}</Text>
                 <Text style={styles.profileHandle}>
                   {userData && userData.email ? userData.full_name : 'Nom non disponible'}
                 </Text>
@@ -202,19 +202,17 @@ export default function ProfileScreen({ navigation }) {
                       // handle onPress
                     }}>
                     <View style={styles.row}>
-                      <Text style={styles.rowLabel}>{label}</Text>
+                      <Text style={[styles.rowLabel,{ color: isDarkMode ? '#FF8911' : '#2c2c2c' }]}>{label}</Text>
                       <View style={styles.rowSpacer} />
                       {type === 'input' && <Text style={styles.rowValue}>{value}</Text>}
                       <Switch
-                    trackColor={{ true: '#007bff' }}
+                    trackColor={{ true: '#FF8911' }}
                     value={isDarkMode}  // Utilisez isDarkMode au lieu de value
                     onValueChange={toggleDarkMode}  // Utilisez la fonction de basculement directement
                   />   
                   
                   
-                                     {(type === 'input' || type === 'link') && (
-                        <FeatherIcon color="#7f7f7f" name="chevron-right" size={20} />
-                      )}
+                                     
                     </View>
                   </TouchableOpacity>
                 </View>

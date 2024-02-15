@@ -12,6 +12,7 @@ import Swiper from 'react-native-swiper';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import Test2ev from './Test2evnt';
+import { useTheme } from '../../ThemeContext';
 
 const items = [
   { name: 'Overview' },
@@ -26,29 +27,29 @@ const IMAGES = [
 ];
 
 export default function DetailEvent({eventData,navigation}) {
+  const {isDarkMode}=useTheme()
   const [value, setValue] = React.useState(0);
-
+  const formatEventDate = (timestamp) => {
+    const dateObject = timestamp.toDate(); // Convert Timestamp to Date
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    const formattedDate = dateObject.toLocaleDateString('fr-FR', options);
+    return formattedDate;
+  };
   return (
-    <View style={{ flex: 1, backgroundColor: '#F9F9F9' }}>
+    <View style={{ flex: 1, backgroundColor: isDarkMode ? '#1F2937' :   '#F9F9F9'  }}>
       
 
-      <ScrollView contentContainerStyle={{ paddingBottom: 140 }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
         <View style={styles.photos}>
-          <Swiper
-            renderPagination={(index, total) => (
+ 
               <View style={styles.photosPagination}>
-                <Text style={styles.photosPaginationText}>
-                  {index + 1} / {total}
-                </Text>
               </View>
-            )}>
               <View style={{ flex: 1 }}>
                 <Image
                   alt=""
                   source={{ uri: eventData.eventImage }}
                   style={styles.photosImg} />
               </View>
-          </Swiper>
         </View>
         <View style={styles.header}>
           <Text style={styles.headerTitle}>{eventData.eventName} </Text>
@@ -98,7 +99,7 @@ export default function DetailEvent({eventData,navigation}) {
               <Text style={styles.headerStarsText}>20 reviews</Text>
             </View> */}
 
-            <Text style={styles.headerDistance}>{eventData.eventDuration}</Text>
+            <Text style={styles.headerDistance}>Durée de {eventData.eventDuration}</Text>
           </View>
         </View>
         <View style={styles.picker}>
@@ -112,7 +113,7 @@ export default function DetailEvent({eventData,navigation}) {
               name="calendar"
               size={16} />
 
-            <Text style={styles.pickerDatesText}>{eventData.eventDate} {eventData.eventHeure}</Text>
+<Text style={[styles.pickerDatesText, { flex: 1, color: isDarkMode ? '#7F27FF' : '#242329' }]}>{formatEventDate(eventData.eventDate)} {eventData.eventHeure}</Text>
           </TouchableOpacity>
 
           <View style={styles.pickerFilterWrapper}>
@@ -195,21 +196,18 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: '#fff',
+  //  backgroundColor: '#fff',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingTop: 12,
     paddingHorizontal: 16,
-    paddingBottom: 48,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
+    paddingBottom: 38,
+   // shadowColor: '#000',
+   
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-    elevation: 3,
+  //  elevation: 3,
   },
   footer: {
     flexGrow: 1,
@@ -268,7 +266,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 22,
     lineHeight: 32,
-    color: '#242329',
+    color: '#7F27FF',
   },
   headerRow: {
     flexDirection: 'row',
@@ -318,7 +316,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 20,
     height: 48,
-    backgroundColor: '#ffffff',
+//    backgroundColor: '#ffffff',
     borderWidth: 1,
     borderColor: '#e3e3e3',
     borderStyle: 'solid',

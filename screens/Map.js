@@ -21,7 +21,6 @@ export default function Map({ route}) {
 
 
     const {data}=route.params;
-console.log("esttttttttttttttttttttttt",data)
     const [directions, setDirections] = useState([]);
     const [distanceTotale, setDistanceTotale] = useState([]);
     const [duree, SetDuree] = useState([]);
@@ -31,8 +30,8 @@ console.log("esttttttttttttttttttttttt",data)
     const [currentStepIndex, setCurrentStepIndex] = useState(0);
     const [showList, setSHowlist] = useState(false);
     const [finle,setFinle]=useState(false)
-  const [userLocation, setUserLocation] = useState(null);
-  const [region, setRegion] = useState({
+    const [userLocation, setUserLocation] = useState(null);
+    const [region, setRegion] = useState({
     latitude: data.latitude,
     longitude: data.longtitude,
     latitudeDelta: 0.0922,
@@ -121,8 +120,13 @@ console.log("esttttttttttttttttttttttt",data)
     if (instructions.length <= 2) {
         setChangeButton(true);
       }
-      if (instructions[1].icon == "location-on") {
-        setFinle(true);
+      if (instructions[1]) {
+        {
+          if(instructions[1].icon == "location-on"){
+            setFinle(true);
+
+          }
+        }
       }
   }
 
@@ -229,7 +233,7 @@ console.log("esttttttttttttttttttttttt",data)
 
         <MapView
         ref={(current) => (map.current = current)}
-        minZoomLevel={20} // Ajustez le niveau minimal de zoom selon vos besoins
+        minZoomLevel={18} 
           maxZoomLevel={20}
           mapType="standard" // Utilisez "standard" pour le mode piéton
         style={styles.map}
@@ -239,29 +243,28 @@ console.log("esttttttttttttttttttttttt",data)
         showsMyLocationButton={true}
         followsUserLocation={true}
         
-         onUserLocationChange={(event) => {
-          const { coordinate, heading } = event.nativeEvent;
-      
-    // Ajustez la région de la carte en fonction de la position et de l'orientation de l'utilisateur avec un délai de 5 secondes
-    setTimeout(() => {
-      setRotationAngle(getRotationAngle(userLocation, coordinate));
+          onUserLocationChange={(event) => {
+            const { coordinate, heading } = event.nativeEvent;
+        
+      // Ajustez la région de la carte en fonction de la position et de l'orientation de l'utilisateur avec un délai de 5 secondes
+      setTimeout(() => {
 
-      setUserLocation({
-        latitude: coordinate.latitude,
-        longitude: coordinate.longitude,
-        heading: heading || 0,
-      });
+        setUserLocation({
+          latitude: coordinate.latitude,
+          longitude: coordinate.longitude,
+          heading: heading || 0,
+        });
 
-      setRegion({
-        latitude: coordinate.latitude,
-        longitude: coordinate.longitude,
-        latitudeDelta: 0.005,
-        longitudeDelta: 0.005,
-        heading: heading || 0,
-      });
-    }, 5000); // Délai de 5 secondes
-  }}
- 
+        setRegion({
+          latitude: coordinate.latitude,
+          longitude: coordinate.longitude,
+          latitudeDelta: 0.005,
+          longitudeDelta: 0.005,
+          heading: heading || 0,
+        });
+      }, 5000); // Délai de 5 secondes
+    }}
+  
 
       >
         <Marker

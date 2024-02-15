@@ -1,6 +1,6 @@
 export const btiment={
     batiment:{
-        "Importance Places":[
+        "Lieux Importants":[
                    
             {
                 name: 'tes',
@@ -33,14 +33,7 @@ export const btiment={
                     longtitude:-8.488460
                 }
             },
-            {
-                name:'bloc A',
-                description:'contient 16 salle',
-                location:{
-                    latitude:33.225416,
-                    longtitude: -8.486133
-                }
-            },
+            
             {
                 name:"anapec",
                 description:"anapec faculte sciences chouaib doukkali",
@@ -70,7 +63,7 @@ export const btiment={
         ],
         amphi:[
             {name:"iben younnes",
-             description:"amphi de cours",
+             description:"amphiiben younnes de cours",
              size:400,
              location:{
                 latitude:33.225721, 
@@ -78,7 +71,7 @@ export const btiment={
              }
             },
              {name:"iben haitam",
-            description:"amphi de cours",
+            description:"amphi iben haitam de cours",
             size:400,
             location:{
                latitude:33.225567, 
@@ -86,22 +79,22 @@ export const btiment={
             }
            },
             {name:"nafis",
-           description:"amphi de cours",
+           description:"amphi nafis de cours",
            size:400,
            location:{
               latitude:33.225109, 
               longtitude:-8.486190
            }
           }, {name:"farrabi",
-          description:"amphi de cours",
+          description:"amphi farrabi de cours",
           size:400,
           location:{
              latitude:33.226098, 
              longtitude:-8.486656
           }
          },
-          {name:"nouvel amphi",
-         description:"amphi de cours",
+          {name:"Le nouvel amphi",
+         description:"Le nouvel amphi de cours",
          size:400,
          location:{
             latitude:33.224832, 
@@ -109,7 +102,7 @@ export const btiment={
          }
         },
         {name:"bayrouni",
-         description:"amphi de cours",
+         description:"amphi bayrouni de cours",
          size:400,
          location:{
             latitude:33.225829,
@@ -184,18 +177,18 @@ export const btiment={
                 }
             }
         ],
-        buffets:[
+        buvettes:[
             {
-                name:'buffet 1',
-                description:'buffet des etudiants',
+                name:'buvette des etudiants',
+                description:'buvette des etudiants',
                 location:{
                     latitude:33.225095,
                     longtitude:-8.485776
                 }
             },
             {
-                name:'buffet 2',
-                description:'buffet des professeurs',
+                name:'buvettee des professeurs',
+                description:'buvette des professeurs',
                 location:{
                     latitude:33.226198,
                     longtitude: -8.487536
@@ -262,7 +255,7 @@ export const btiment={
         blocs:[
             {
                 name:'bloc A',
-                description:'contient 16 salle',
+                description:'contient 16 salle 1 ,salle 2,salle 3, salle 4,salle 5,salle 6,salle 7,salle 8,salle 9,salle 10 ,salle 11 ,salle 12,salle 13, salle 14,salle 15,salle 16',
                 location:{
                     latitude:33.225416,
                     longtitude: -8.486133
@@ -270,7 +263,7 @@ export const btiment={
             },
             {
                 name:'bloc B',
-                description:'contient 16 salle',
+                description:'contient 17 vers 32 salle 17 ,salle 18,salle 19, salle 20,salle 27,salle 28,salle 29,salle 30,salle 31,salle 20 ,salle 21 ,salle 22,salle 23, salle 24,salle 25,salle 26',
                 location:{
                     latitude:33.225358, 
                     longtitude:-8.485680
@@ -278,7 +271,7 @@ export const btiment={
             },
             {
                 name:'bloc C',
-                description:'contient 16 salle',
+                description:'contient 32 vers 48 salle 37 ,salle 38,salle 39, salle 30,salle 27,salle 48,salle 36,salle 35,salle 34,salle 40 ,salle 41 ,salle 42,salle 43, salle 44,salle 45,salle 46',
                 location:{
                     latitude:33.226169,
                     longtitude: -8.487994
@@ -286,7 +279,7 @@ export const btiment={
             },
             {
                 name:'bloc D',
-                description:'contient 16 salle',
+                description:'contient 49 vers 60 salle 47 ,salle 48,salle 49, salle 50,salle 51,salle 52,salle 46,salle 45,salle 44,salle 40 ,salle 51 ,salle 52,salle 53, salle 54,salle 55,salle 56',
                 location:{
                     latitude:33.225817, 
                     longtitude:-8.488257

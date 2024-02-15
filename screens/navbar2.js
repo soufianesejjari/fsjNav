@@ -4,10 +4,12 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Home from './Home';
 import Places from './composants/PlacesV2';
+
 import EventList from './EventList';
 import ProfileScreen from './ProfileScreen';
 import { useTheme } from '../ThemeContext'; // Importez votre hook de thème
 import EventForm from './composants/EventForm';
+import RechercheP from './composants/Rechrechep';
 
 const Tab = createBottomTabNavigator();
 
@@ -29,9 +31,24 @@ const MyTabs = () => {
 
  
   };
+  const screenOpp = {
+    tabBarInactiveBackgroundColor : isDarkMode ? '#1F2937' : '#e8ecf4', // Couleur de fond de la barre de navigation
+
+    tabBarActiveBackgroundColor : isDarkMode ? '#1F2937' : '#e8ecf4', // Couleur de fond de la barre de navigation
+    activeTintColor: isDarkMode ? '#fb8500' : '#fb8500', // Couleur de l'icône active
+    inactiveTintColor: isDarkMode ? '#8ecae6' : '#023047', // Couleur de l'icône inactive
+    labelStyle: {
+      fontSize: 12, // Taille du texte
+      fontWeight: 'bold', // Poids de la police du texte
+    },
+   // tabBarStyle: {  backgroundColor: isDarkMode ? '#1F2937' : '#8ecae6', // Couleur de fond de la barre de navigation
+  //},
+
+ 
+  };
 
   return (
-    <Tab.Navigator initialRouteName="Home" tabBarOptions={tabBarOptions}>
+    <Tab.Navigator initialRouteName="Home" tabBarOptions={tabBarOptions} screenOptions={screenOpp}>
       <Tab.Screen
         name="Home"
         component={Home}

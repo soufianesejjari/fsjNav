@@ -37,7 +37,7 @@ console.log("siiiiiiiiiii",eventData);
 
   const items = [
 
-    { name: 'about' ,composant:<AboutEvent eventData={eventData.eventDescription}/>},
+    { name: "plus d'information" ,composant:<AboutEvent eventData={eventData.eventDescription}/>},
     { name: 'Programme',composant:<Test2ev eventData={eventData.programme}/>},
     { name: 'Remarques' },
   ];

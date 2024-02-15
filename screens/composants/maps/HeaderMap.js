@@ -3,20 +3,21 @@ import { StyleSheet, SafeAreaView ,Button,Text,View} from "react-native";
 import { MaterialIcons } from '@expo/vector-icons'; // Importer les icônes de Material Icons
 
 const HeaderMap = ({icon,name,distance,suivant}) => {
+  console.log("est voiala le name  et l'icon ",name," icon ; ",icon)
     const extractText = (html) => {
         return html.replace(/<[^>]*>/g, ' '); // Utilise une expression régulière pour supprimer les balises HTML
       };
     return (
-        <View className="absolute inset-x-0 top-0 mx-5 mt-3 ">
+        <View className="absolute inset-x-0 top-0 mx-5 mt-10 ">
           <View className="" >
             <View className=" flex justify-between" style={styles.button}>
 
               <View className=" ">
-              <MaterialIcons name={icon} size={60} color="green" />
+              <MaterialIcons name={icon? icon:"maps-home-work"} size={60} color="#9F70FD" /> 
 
               </View>
     <View >
-    <Text className="text-sm w-48">{extractText(name)}</Text>
+    <Text className="text-sm w-48">{extractText(name?name:"destination")}</Text>
               <Text>({distance})</Text>
                 </View>
             <View className="mr-3">

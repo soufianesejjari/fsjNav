@@ -25,7 +25,7 @@ const IMAGES = [
   'https://images.unsplash.com/photo-1652509525608-6b44097ea5a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjN8fHRlc2xhJTIwbW9kZWwlMjBzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
 ];
 
-export default function EventMain({route}) {
+export default function EventMain({route,navigation}) {
   const {isDarkMode}= useTheme()
   const {eventData}=route.params;
   
@@ -52,7 +52,8 @@ console.log("siiiiiiiiiii",eventData);
         </SafeAreaView>
       </View>
       <ScrollView>
-      <DetailEvent eventData={eventData}/>
+      <DetailEvent eventData={eventData}
+      navigation={navigation}/>
 
     
       <AboutEvent eventData={eventData.eventDescription}/>

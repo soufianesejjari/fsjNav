@@ -13,7 +13,7 @@ const FouterMap = ({durre,distanceT,onInstructionComplete,changeButton,handleLis
 
           
     <View >
-   <Text className="text-3xl m-2 ml-3 text-green-500">{parseInt(durre)} min</Text>
+   <Text className="text-3xl m-2 ml-1 text-green-500" style={{color:'#9F70FD'}}> {parseInt(durre)} min</Text>
               <Text className="text-sm mb-3 ml-4 text-gray-600">{parseFloat(distanceT.toFixed(2))} km </Text> 
 {/* 
 <Text className="text-3xl m-2 ml-3 text-green-500">{durre}</Text>
@@ -26,10 +26,16 @@ const FouterMap = ({durre,distanceT,onInstructionComplete,changeButton,handleLis
             </TouchableOpacity>
 
             </View>
-            <View className="mr-5 rounded-full bg-teal-400 p-2">
+            <View className="mr-5 rounded-full bg-teal-400 px-4 pb-2 pt-2" style={{backgroundColor:'#7F27FF',}}>
             <TouchableOpacity onPress={onInstructionComplete}>
              
-            {finale ? <Text>Fin</Text> : (changeButton ? <Text>Suivant</Text> : <Text>Start</Text>)}
+            {finale ? <Text style={{color:'#FDBF60',        fontSize: 16,
+     
+    }}>Fin</Text> : (changeButton ? <Text style={{color:'#FDBF60',        fontSize: 16,
+     
+}}>Suivant</Text> : <Text style={{color:'#FDBF60',        fontSize: 16,
+     
+}}>Start</Text>)}
 
            
             </TouchableOpacity>

@@ -25,7 +25,7 @@ const IMAGES = [
   'https://images.unsplash.com/photo-1652509525608-6b44097ea5a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjN8fHRlc2xhJTIwbW9kZWwlMjBzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
 ];
 
-export default function DetailEvent({eventData}) {
+export default function DetailEvent({eventData,navigation}) {
   const [value, setValue] = React.useState(0);
 
   return (
@@ -165,7 +165,14 @@ export default function DetailEvent({eventData}) {
        
           <TouchableOpacity
             onPress={() => {
-              // handle onPress
+              const latitude = parseFloat(eventData.eventLocation.latitude);
+              const longtitude = parseFloat(eventData.eventLocation.longitude);
+            const donnes={
+              latitude:latitude,
+              longtitude:longtitude
+            }
+              console.log(eventData.eventLocation)
+              navigation.navigate('Map', {data: donnes});
             }}
             style={{ flex: 1, paddingHorizontal: 8 }}>
             <View style={styles.btnSecondary}>

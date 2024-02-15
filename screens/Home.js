@@ -93,16 +93,18 @@ const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   lightContainer: {
-    marginTop:20,
+    marginTop:30,
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#e8ecf4',
   },
   darkContainer: {
+    marginTop:30,
+
     flex: 1,
     backgroundColor: '#1f1f1f',
   },
   lightFacultyCardContainer: {
-    backgroundColor: '#7F27FF',
+    backgroundColor: '#FF8911',
     borderRadius: 15,
     padding: 20,
     margin: 10,
@@ -116,7 +118,7 @@ const styles = StyleSheet.create({
   facultyCardTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#FDBF60',
+    color: '#7F27FF',
   },
   facultyCardDescription: {
     marginTop: 10,
@@ -130,7 +132,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   lightDepartmentsContainer: {
-    backgroundColor: '#F4F4F5', // Couleur de fond pour le mode clair
+    backgroundColor: '#e8ecf4', // Couleur de fond pour le mode clair
     padding: 16,
     borderRadius: 12,
     marginTop: 16,
@@ -162,7 +164,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   departementImage: {
-    height: 150,
+    height: 130,
     width: 120,
     borderRadius: 15,
   },
@@ -177,9 +179,9 @@ const styles = StyleSheet.create({
     color: '#6B7280',
   },
   lightTopEventsContainer: {
-    backgroundColor: '#F3F4F6',
+    backgroundColor: '#e8ecf4',
     padding: 10,
-    marginBottom: 30,
+    marginBottom: 15,
     height: 200,
   },
   darkTopEventsContainer: {
@@ -196,10 +198,13 @@ const styles = StyleSheet.create({
   },
   eventContainer: {
     marginRight: 10,
+    alignContent:"center",
+    alignItems:'center',
+    justifyContent:'center',
   },
   eventImage: {
-    width: 250,
-    height: 150,
+    width: 280,
+    height: 180,
     borderRadius: 15,
   },
   iconContainer: {

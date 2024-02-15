@@ -41,15 +41,11 @@ export default function EtapesList({ setCloseList, directions }) {
   
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        <View style={styles.placeholder}>
-          <View style={styles.placeholderInset}>
-            {/* Replace with your content */}
-          </View>
-        </View>
+   
   
         <RBSheet
           customStyles={{ container: styles.sheet }}
-          height={530}
+          height={800}
           openDuration={250}
           ref={sheet}
           onClose={setCloseList}
@@ -64,7 +60,7 @@ export default function EtapesList({ setCloseList, directions }) {
         <View key={index} style={styles.card}>
           <View style={styles.cardIcon}>
             <FeatherIcon
-              color="#000"
+              color="#7F27FF"
               name={index === directions.length - 1 ? "map-pin" : getIconForManeuver(step.maneuver)}
               size={30}
             />
@@ -183,6 +179,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
   },
   sheetHeaderTitle: {
+  //  color:'bl',
     fontSize: 20,
     fontWeight: '600',
     textAlign: 'center',
@@ -223,7 +220,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: '700',
-    color: '#1d1d1d',
+    color: '#FF8911',
     marginBottom: 12,
   },
   /** Card */

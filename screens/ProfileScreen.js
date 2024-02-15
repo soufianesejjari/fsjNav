@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import MyLocalImage from '../assets/60111.jpg'
+
 import {
   StyleSheet,
   SafeAreaView,
@@ -45,7 +47,7 @@ export default function ProfileScreen({ navigation }) {
             // For example:
             navigation.navigate('EventForm');
           }}>
-          <View style={styles.profileAction}>
+          <View style={styles.profileAction} className="mx-8">
             <Text style={styles.profileActionText}>Ajouter un événement</Text>
             <FeatherIcon color="#fff" name="plus" size={16} />
           </View>
@@ -54,7 +56,7 @@ export default function ProfileScreen({ navigation }) {
          onPress={() => {
            setIsAddingOrganization(true);
          }}>
-         <View style={styles.profileAction}>
+         <View style={styles.profileAction} className="mx-8">
            <Text style={styles.profileActionText}>Ajouter un organisateur</Text>
            <FeatherIcon color="#fff" name="user-plus" size={16} />
          </View>
@@ -123,9 +125,8 @@ export default function ProfileScreen({ navigation }) {
             <View style={styles.profileHeader}>
               <Image
                 alt=""
-                source={{
-                  uri: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80',
-                }}
+                source={MyLocalImage
+                }
                 style={styles.profileAvatar}
               />
               <View>
@@ -174,11 +175,11 @@ export default function ProfileScreen({ navigation }) {
                         setValue(index);
                       }}>
                       <View style={styles.tab}>
-                        <FeatherIcon color={isActive ? '#6366f1' : '#6b7280'} name={icon} size={16} />
+                        <FeatherIcon color={isActive ? '#FF8911' : '#FF8911'} name={icon} size={16} />
                         <Text
                           style={[
                             styles.tabText,
-                            isActive && { color: '#6366f1' },
+                            isActive && { color: '#FF8911' },
                           ]}>
                           {name}
                         </Text>
@@ -220,15 +221,7 @@ export default function ProfileScreen({ navigation }) {
               );
             })}
           </View>
-          <TouchableOpacity
-              onPress={() => {
-                // handle onPress
-              }}>
-              <View style={styles.profileAction} className="mx-8">
-                <Text style={styles.profileActionText}>Ajoute Evenement </Text>
-                <FeatherIcon color="#fff" name="edit-3" size={16} />
-              </View>
-            </TouchableOpacity>
+ 
             {renderAddEventButton()} 
  <AddOrganizationModal
         visible={isAddingOrganization}
@@ -283,9 +276,10 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   title: {
+    marginTop:10,
     fontSize: 32,
     fontWeight: '700',
-    color: '#1d1d1d',
+    color: '#FF8911',
     marginBottom: 6,
   },
   subtitle: {
@@ -339,7 +333,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#007bff',
+    backgroundColor: '#7F27FF',
     borderRadius: 12,
   },
   profileActionText: {
@@ -434,13 +428,15 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   eventNameText: {
-    color: '#fff',   // Couleur du texte
+    color: '#FF8911',   // Couleur du texte
     fontWeight: 'bold',   // Texte en gras
   },
   eventCard: {
-    backgroundColor: 'rgba(63, 127, 191, 0.65)',  // Utilisez les valeurs RVB de votre palette
-    padding: 10,  // Espacement intérieur de la carte
+    marginTop:160,
+    backgroundColor: 'rgba(159, 112, 253, 0.65)',  // Utilisez les valeurs RVB de votre palette
+    padding: 12,  // Espacement intérieur de la carte
     borderRadius: 8,  // Bordure arrondie
+    justifyContent:'flex-end',
   },
   logoutBtn: {
     flexDirection: 'row',

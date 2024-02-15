@@ -57,8 +57,8 @@ const LatestEvents = ({ navigation }) => {
   );
 
   return (
-    <View>
-      <Text style={styles.sectionTitle}>Derniers événements</Text>
+    <View >
+      <Text style={isDarkMode? styles.sectionTitleD:  styles.sectionTitle}>Derniers événements</Text>
       <FlatList
         horizontal
         data={latestEvents}
@@ -74,11 +74,25 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 8,
+    color:'#7F27FF',
+
+  },
+  sectionTitleD: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    color:'#FF8911',
+
   },
   lightEventContainer: {
-    margin: 8,
+    margin: 5,
+    marginLeft:8,
     borderRadius: 12,
     overflow: 'hidden',
+    alignContent:'center',
+    textAlign:'center',
+    backgroundColor:'#e8ecf4',
+    justifyContent:'center',
   },
   darkEventContainer: {
     margin: 8,
@@ -88,22 +102,22 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   eventImage: {
-    width: 260,
-    height: 140,
+    width: 290,
+    height: 150,
     borderRadius: 12,
     justifyContent: 'flex-end',
 
   },
  overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     padding: 16,
     justifyContent: 'flex-end',  // Conservez uniquement cette ligne
   },
   eventTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#FF8911',
   },
   eventDate: {
     fontSize: 14,

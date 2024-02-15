@@ -21,7 +21,7 @@ export default function Map({ route}) {
 
 
     const {data}=route.params;
-
+console.log("esttttttttttttttttttttttt",data)
     const [directions, setDirections] = useState([]);
     const [distanceTotale, setDistanceTotale] = useState([]);
     const [duree, SetDuree] = useState([]);
@@ -238,28 +238,30 @@ export default function Map({ route}) {
         showsUserLocation={true}
         showsMyLocationButton={true}
         followsUserLocation={true}
-        /* 
+        
          onUserLocationChange={(event) => {
           const { coordinate, heading } = event.nativeEvent;
-          setRotationAngle(getRotationAngle(userLocation, coordinate))
+      
+    // Ajustez la région de la carte en fonction de la position et de l'orientation de l'utilisateur avec un délai de 5 secondes
+    setTimeout(() => {
+      setRotationAngle(getRotationAngle(userLocation, coordinate));
 
-          setUserLocation({
-            latitude: coordinate.latitude,
-            longitude: coordinate.longitude,
-            heading: heading || 0,
-          });
+      setUserLocation({
+        latitude: coordinate.latitude,
+        longitude: coordinate.longitude,
+        heading: heading || 0,
+      });
 
-          // Ajustez la région de la carte en fonction de la position et de l'orientation de l'utilisateur
-          setRegion({
-            latitude: coordinate.latitude,
-            longitude: coordinate.longitude,
-            latitudeDelta: 0.005,
-            longitudeDelta: 0.005,
-            heading: heading || 0,
-          });
-
-        }} 
- */
+      setRegion({
+        latitude: coordinate.latitude,
+        longitude: coordinate.longitude,
+        latitudeDelta: 0.005,
+        longitudeDelta: 0.005,
+        heading: heading || 0,
+      });
+    }, 5000); // Délai de 5 secondes
+  }}
+ 
 
       >
         <Marker
@@ -281,7 +283,7 @@ export default function Map({ route}) {
             }}
             apikey={GOOGLE_MAPS_APIKEY}
             strokeWidth={7}
-            strokeColor="green"
+            strokeColor="#9F70FD"
             mode="WALKING"
             onReady={(result) => {
                 SetDuree(result.duration)
@@ -302,10 +304,10 @@ export default function Map({ route}) {
 
     
 
-        {laoding ? null :   <HeaderMap
-          name={instructions[0].instruction}
-          icon={instructions[0].icon}
-          distance={instructions[0].distance}
+        {laoding ? null :      <HeaderMap
+          name={instructions.length > 0 ? instructions[0].instruction : ''}
+          icon={ instructions.length > 0 ? instructions[0].icon : ''}
+          distance={instructions.length > 0 ? instructions[0].distance : ''}
           suivant={instructions.length > 1 ? instructions[1].icon : 'location-on'}
         />}
                         

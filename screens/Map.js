@@ -150,7 +150,7 @@ export default function Map({ route}) {
     }
   }, [userLocation, directions, currentStepIndex, rotationAngle]);
   
-  const getRotationAngle = (previousPosition, currentPosition) => {
+/*   const getRotationAngle = (previousPosition, currentPosition) => {
     const x1 = previousPosition.latitude;
     const y1 = previousPosition.longitude;
     const x2 = currentPosition.latitude;
@@ -161,10 +161,10 @@ export default function Map({ route}) {
   
     return (Math.atan2(yDiff, xDiff) * 180.0) / Math.PI;
   };
+ */
 
-
-  const findClosestStep = (userLocation, steps) => {
-    const threshold = 50; // Seuil de distance pour trouver l'étape la plus proche (en mètres)
+/*   const findClosestStep = (userLocation, steps) => {
+    const threshold = 50; 
 
     for (let i = 0; i < steps.length; i++) {
       const step = steps[i];
@@ -176,7 +176,7 @@ export default function Map({ route}) {
     }
 
     return null;
-  };
+  }; */
   const findNextSteps = (steps, currentStep) => {
     if (!currentStep) {
       return [];
@@ -184,7 +184,7 @@ export default function Map({ route}) {
 
     const currentIndex = steps.indexOf(currentStep);
 
-    return steps.slice(currentIndex, currentIndex + 2); // Récupérer 4 étapes (3 suivantes après la position actuelle)
+    return steps.slice(currentIndex, currentIndex + 2); 
   };
   const calculateDistance = (location1, location2) => {
     const lat1 = location1.latitude;
@@ -223,7 +223,7 @@ export default function Map({ route}) {
       case 'turn-left':
         return 'arrow-back';
       default:
-        return 'arrow-forward'; // Utilisation d'une flèche vers l'avant par défaut
+        return 'arrow-forward'; 
     }
   };
   return (

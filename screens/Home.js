@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e8ecf4',
   },
   darkContainer: {
-    marginTop:30,
+    //marginTop:30,
 
     flex: 1,
     backgroundColor: '#1f1f1f',

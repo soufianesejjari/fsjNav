@@ -2,14 +2,7 @@ export const btiment={
     batiment:{
         "Lieux Importants":[
                    
-            {
-                name: 'tes',
-                description: 'sufian  test sciences chouaib doukalli',
-                location: {
-                    latitude: 34.0593776,
-                    longtitude: -4.9583827
-                }
-            },
+            
             {
                 name: 'administration',
                 description: 'administration faculté sciences chouaib doukalli',

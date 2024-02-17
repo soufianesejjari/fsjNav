@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { useTheme } from '../../ThemeContext';
+import { useTheme } from '../../../ThemeContext';
 import {
   StyleSheet,
   View,
@@ -13,7 +13,6 @@ import {
 import Swiper from 'react-native-swiper';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
-import Test2ev from './Test2evnt';
 import DetailEvent from './detailsEvent';
 import AboutEvent from './AboutEvent';
 
@@ -38,7 +37,6 @@ console.log("siiiiiiiiiii",eventData);
   const items = [
 
     { name: "plus d'information" ,composant:<AboutEvent eventData={eventData.eventDescription}/>},
-    { name: 'Programme',composant:<Test2ev eventData={eventData.programme}/>},
     { name: 'Remarques' },
   ];
   const [value, setValue] = useState(0);

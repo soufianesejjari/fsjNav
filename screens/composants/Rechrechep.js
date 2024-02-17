@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import Places from './PlacesV2';
-import { btiment } from './Batiments';
+import { btiment } from '../../firebaseServices/Batiments';
 
 export default function RechercheP() {
   const scrollY = useRef(new Animated.Value(0)).current;

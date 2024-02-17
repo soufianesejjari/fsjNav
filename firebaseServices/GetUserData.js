@@ -25,8 +25,6 @@ const getUserData = async () => {
 // Exécuter la requête
 
 
-
-
 const storedEvents = await AsyncStorage.getItem('storedEvents');
 const eventsData = storedEvents ? JSON.parse(storedEvents) : [];
 console.log('Événements récupérés du stockage local:', eventsData);

@@ -1,10 +1,8 @@
 import React, { useState,useRef } from 'react';
 import { TextInput,View, Text, StyleSheet, SafeAreaView, TouchableOpacity, FlatList, Animated } from 'react-native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
-import RechercheP from './Rechrechep';
-import NavBar from '../../nav/navBar';
-import { btiment } from './Batiments';
-import { useTheme } from '../../ThemeContext'; // Importez votre hook de thème
+import { btiment } from '../../../firebaseServices/Batiments';
+import { useTheme } from '../../../ThemeContext'; // Importez votre hook de thème
 
 
     function Places({navigation}) {

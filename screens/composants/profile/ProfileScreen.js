@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import MyLocalImage from '../assets/60111.jpg'
+import MyLocalImage from '../../../assets/60111.jpg'
 
 import {
   StyleSheet,
@@ -13,9 +13,9 @@ import {
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 import FeatherIcon from 'react-native-vector-icons/Feather';
-import getUserData from '../firebaseServices/GetUserData';
+import getUserData from '../../../firebaseServices/GetUserData';
 import Laoding from './Laoding';
-import { useTheme } from '../ThemeContext';
+import { useTheme } from '../../../ThemeContext';
 import { getAuth } from 'firebase/auth';
 import AddOrganizationModal from './AddOrganizationModal';
 

@@ -1,19 +1,19 @@
 import React from 'react';
 import { SafeAreaView, Text, StyleSheet, Image, FlatList, TouchableOpacity, ScrollView, View, Switch } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-import { useTheme } from '../ThemeContext';  // Importez votre hook de thème
-import LatestEvents from './composants/LatestEvents';
+import { useTheme } from '../../../ThemeContext';  // Importez votre hook de thème
+import LatestEvents from './LatestEvents';
 
 const Home = ({ navigation }) => {
   const { isDarkMode, toggleDarkMode } = useTheme(); // Obtenez l'état du thème et la fonction pour basculer le mode sombre
 
   const departements = [
-    { id: 1, title: 'Informatique', content: '5 événements', image: require('../assets/info.jpg') },
-    { id: 2, title: 'Mathématiques', content: '5 événements', image: require('../assets/math.jpg') },
-    { id: 3, title: 'Physique', content: '5 événements', image: require('../assets/pc.jpg') },
-    { id: 4, title: 'Chimie', content: '5 événements', image: require('../assets/chimie.jpg') },
-    { id: 5, title: 'Géologie', content: '5 événements', image: require('../assets/geo.jpg') },
-    { id: 6, title: 'Biologie', content: '5 événements', image: require('../assets/bio.jpg') },
+    { id: 1, title: 'Informatique', content: '5 événements', image: require('../../../assets/info.jpg') },
+    { id: 2, title: 'Mathématiques', content: '5 événements', image: require('../../../assets/math.jpg') },
+    { id: 3, title: 'Physique', content: '5 événements', image: require('../../../assets/pc.jpg') },
+    { id: 4, title: 'Chimie', content: '5 événements', image: require('../../../assets/chimie.jpg') },
+    { id: 5, title: 'Géologie', content: '5 événements', image: require('../../../assets/geo.jpg') },
+    { id: 6, title: 'Biologie', content: '5 événements', image: require('../../../assets/bio.jpg') },
 
   ];
 

@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView ,SafeAr
 import { collection, getDocs, getFirestore ,addDoc, updateDoc, query, where, arrayUnion, arrayRemove,serverTimestamp} from 'firebase/firestore';
 import { Picker } from '@react-native-picker/picker';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
-import { btiment } from './Batiments';
+import { btiment } from '../../../firebaseServices/Batiments';
 
 
 

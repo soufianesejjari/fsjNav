@@ -11,8 +11,7 @@ import {
 import Swiper from 'react-native-swiper';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
-import Test2ev from './Test2evnt';
-import { useTheme } from '../../ThemeContext';
+import { useTheme } from '../../../ThemeContext';
 
 const items = [
   { name: 'Overview' },

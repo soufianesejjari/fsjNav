@@ -6,10 +6,9 @@ import * as Location from 'expo-location';
 import { StyleSheet, SafeAreaView ,Button,Text,View} from "react-native";
 import axios from 'axios';
 import { MaterialIcons } from '@expo/vector-icons'; // Importer les icônes de Material Icons
-import OptionM from "./composants/maps/OptionsM";
-import HeaderMap from "./composants/maps/HeaderMap";
-import FouterMap from "./composants/maps/FouterMap";
-import EtapesList from "./composants/maps/EtapesList";
+import HeaderMap from "./maps/HeaderMap";
+import FouterMap from "./maps/FouterMap";
+import EtapesList from "./maps/EtapesList";
 
 
 const GOOGLE_MAPS_APIKEY = "AIzaSyAcq7ba-UVWTTVI3z3jkP7EU8ZaGb-e5rU";

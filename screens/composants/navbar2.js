@@ -2,14 +2,13 @@ import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import Home from './Home';
-import Places from './composants/PlacesV2';
+import Home from './Home/Home';
+import Places from './emplacements/PlacesV2';
 
-import EventList from './EventList';
-import ProfileScreen from './ProfileScreen';
-import { useTheme } from '../ThemeContext'; // Importez votre hook de thème
-import EventForm from './composants/EventForm';
-import RechercheP from './composants/Rechrechep';
+import EventList from './events/EventList';
+import ProfileScreen from './profile/ProfileScreen';
+import { useTheme } from '../../ThemeContext'; // Importez votre hook de thème
+
 
 const Tab = createBottomTabNavigator();
 

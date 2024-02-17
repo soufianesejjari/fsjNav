@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import { useTheme } from '../../ThemeContext';
+import { useTheme } from '../../../ThemeContext';
 import { collection, getDocs, getFirestore ,orderBy,query,limit,where} from 'firebase/firestore';
 // import { startOfDay, Timestamp } from 'date-fns';
 

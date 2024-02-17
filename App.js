@@ -1,43 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
 import { AppRegistry, StyleSheet,Text , View } from 'react-native';
 import firebase from 'firebase/app';
 import { initializeApp } from 'firebase/app';
-import Home from './screens/Home';
 import 'firebase/auth';
 import 'firebase/database';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginPage from './screens/authentification/Connexion';
-import LoginScreen from './screens/Login';
-import Register from './screens/Register';
-import Events from './screens/Events';
-import ProfileScreen from './screens/ProfileScreen';
-import Map from './screens/Map';
-import Example from './screens/EventList';
-import Header from './screens/composants/Header';
-import DetailEvent from './screens/composants/detailsEvent';
-import EventMain from './screens/composants/EventMain';
-import RechercheP from './screens/composants/Rechrechep';
-import BtimentComponent from './screens/composants/PlacesV2';
-import Places from './screens/composants/PlacesV2';
-import Test2ev from './screens/composants/Test2evnt';
-import EventList from './screens/EventList';
+
 
 import { getFirestore } from "firebase/firestore";
 import { addDoc,getDocs, collection } from "firebase/firestore"; 
-import NAvT from './screens/navbar2';
 import { name as appName } from './app.json';
 import { useEffect, useState,useCallback } from 'react';
 
 import { getAuth,  onAuthStateChanged   ,User, initializeAuth, getReactNativePersistence  } from "firebase/auth";
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
-
+import MyTabs from './screens/composants/navbar2';
 
 import * as SplashScreen from 'expo-splash-screen';
 import { ThemeProvider } from './ThemeContext';
 import LoginComposont from './screens/composants/authentification/Login';
 import SignUp from './screens/composants/authentification/SingUp';
-import EventForm from './screens/composants/EventForm';
+import Places from './screens/composants/emplacements/PlacesV2';
+import EventForm from './screens/composants/profile/EventForm';
+import Home from './screens/composants/Home/Home';
+import EventList from './screens/composants/events/EventList';
+import ProfileScreen from './screens/composants/profile/ProfileScreen';
+import Map from './screens/composants/emplacements/Map';
+import EventMain from './screens/composants/events/EventMain';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -141,7 +130,6 @@ export default  function App() {
   getSata()
  */
 
-// Accédez à chaque propriété de l'objet et itérez sur les valeurs
 
 
 
@@ -155,14 +143,12 @@ export default  function App() {
       
 
       <Stack.Navigator  initialRouteName='Login' screenOptions={{headerShown : false}}>
-      {user ? (<Stack.Screen name="Login" component={NAvT}          options={{
+      {user ? (<Stack.Screen name="Login" component={MyTabs}          options={{
             headerLeft: null, // Désactive le bouton de retour
           }} />):(<Stack.Screen name="Login" component={LoginComposont}          options={{
             headerLeft: null, // Désactive le bouton de retour
           }} />)}
-        <Stack.Screen name="Register" component={Register}     options={{
-            headerLeft: null, // Désactive le bouton de retour
-          }} />
+      
              <Stack.Screen name="SingUp" component={SignUp}     options={{
             headerLeft: null, // Désactive le bouton de retour
           }} />
@@ -176,9 +162,9 @@ export default  function App() {
         <Stack.Screen name="Home" component={Home}    options={{
             headerLeft: null, // Désactive le bouton de retour
           }} />
-                  <Stack.Screen name="Test2ev" component={Test2ev}    options={{
+   {/*                <Stack.Screen name="Test2ev" component={Test2ev}    options={{
             headerLeft: null, // Désactive le bouton de retour
-          }} />
+          }} /> */}
                             <Stack.Screen name="EventList" component={EventList}    options={{
             headerLeft: null, // Désactive le bouton de retour
           }} />
@@ -190,7 +176,7 @@ export default  function App() {
           <Stack.Screen name="Map" component={Map}    options={{
             headerLeft: null, // Désactive le bouton de retour
           }} />
-          <Stack.Screen name="NAvT" component={NAvT}    options={{
+          <Stack.Screen name="NAvT" component={MyTabs}    options={{
             headerLeft: null, // Désactive le bouton de retour
           }} />
 

@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
-import { useTheme } from '../ThemeContext';
+import { useTheme } from '../../../ThemeContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 

@@ -7,7 +7,7 @@ import Places from './emplacements/PlacesV2';
 
 import EventList from './events/EventList';
 import ProfileScreen from './profile/ProfileScreen';
-import { useTheme } from '../../ThemeContext'; // Importez votre hook de thème
+import { useTheme } from '../../ThemeContext'; // Importez  hook de thème
 
 
 const Tab = createBottomTabNavigator();
@@ -16,31 +16,31 @@ const MyTabs = () => {
   const { isDarkMode } = useTheme(); // Obtenez l'état du thème
 
   const tabBarOptions = {
-    tabBarInactiveBackgroundColor : isDarkMode ? '#1F2937' : '#8ecae6', // Couleur de fond de la barre de navigation
+    tabBarInactiveBackgroundColor : isDarkMode ? '#1F2937' : '#8ecae6', 
 
-    tabBarActiveBackgroundColor : isDarkMode ? '#1F2937' : '#8ecae6', // Couleur de fond de la barre de navigation
+    tabBarActiveBackgroundColor : isDarkMode ? '#1F2937' : '#8ecae6', 
     activeTintColor: isDarkMode ? '#fb8500' : '#fb8500', // Couleur de l'icône active
     inactiveTintColor: isDarkMode ? '#8ecae6' : '#023047', // Couleur de l'icône inactive
     labelStyle: {
       fontSize: 12, // Taille du texte
       fontWeight: 'bold', // Poids de la police du texte
     },
-   // tabBarStyle: {  backgroundColor: isDarkMode ? '#1F2937' : '#8ecae6', // Couleur de fond de la barre de navigation
+   // tabBarStyle: {  backgroundColor: isDarkMode ? '#1F2937' : '#8ecae6', 
   //},
 
  
   };
   const screenOpp = {
-    tabBarInactiveBackgroundColor : isDarkMode ? '#1F2937' : '#e8ecf4', // Couleur de fond de la barre de navigation
+    tabBarInactiveBackgroundColor : isDarkMode ? '#1F2937' : '#e8ecf4', 
 
-    tabBarActiveBackgroundColor : isDarkMode ? '#1F2937' : '#e8ecf4', // Couleur de fond de la barre de navigation
-    activeTintColor: isDarkMode ? '#fb8500' : '#fb8500', // Couleur de l'icône active
-    inactiveTintColor: isDarkMode ? '#8ecae6' : '#023047', // Couleur de l'icône inactive
+    tabBarActiveBackgroundColor : isDarkMode ? '#1F2937' : '#e8ecf4', 
+    activeTintColor: isDarkMode ? '#fb8500' : '#fb8500',
+    inactiveTintColor: isDarkMode ? '#8ecae6' : '#023047', 
     labelStyle: {
-      fontSize: 12, // Taille du texte
-      fontWeight: 'bold', // Poids de la police du texte
+      fontSize: 12, 
+      fontWeight: 'bold', 
     },
-   // tabBarStyle: {  backgroundColor: isDarkMode ? '#1F2937' : '#8ecae6', // Couleur de fond de la barre de navigation
+   // tabBarStyle: {  backgroundColor: isDarkMode ? '#1F2937' : '#8ecae6', 
   //},
 
  

@@ -234,7 +234,7 @@ export default function Map({ route}) {
         ref={(current) => (map.current = current)}
         minZoomLevel={18} 
           maxZoomLevel={20}
-          mapType="standard" // Utilisez "standard" pour le mode piéton
+          mapType="standard" //  "standard" pour le mode piéton
         style={styles.map}
         initialRegion={region}
         provider={PROVIDER_GOOGLE}
@@ -245,7 +245,7 @@ export default function Map({ route}) {
           onUserLocationChange={(event) => {
             const { coordinate, heading } = event.nativeEvent;
         
-      // Ajustez la région de la carte en fonction de la position et de l'orientation de l'utilisateur avec un délai de 5 secondes
+      //  la région de la carte en fonction de la position et de l'orientation de l'utilisateur avec un délai de 5 secondes
       setTimeout(() => {
 
         setUserLocation({

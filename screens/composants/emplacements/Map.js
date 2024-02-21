@@ -53,10 +53,9 @@ export default function Map({ route}) {
       setUserLocation({
         latitude: location.coords.latitude,
         longitude: location.coords.longitude,
-        heading: location.coords.heading || 0, // Utilisez la direction si elle est disponible, sinon 0 degré par défaut
+        heading: location.coords.heading || 0, // la direction si elle est disponible, sinon 0 degré par défaut
       });
 
-      // Optionally, you can set the region to the user's location
       setRegion({
         latitude: location.coords.latitude,
         longitude: location.coords.longitude,

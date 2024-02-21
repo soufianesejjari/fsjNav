@@ -11,3 +11,4 @@ fsNav is a mobile application developed using React Native and Expo. It serves a
 - [Firebase](https://firebase.google.com/)
 
 ## Getting Started
+ npm i 
